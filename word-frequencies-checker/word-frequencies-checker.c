@@ -92,7 +92,7 @@ void print_freq(node *freq)
   if (freq->str != NULL)
   {
     printf("print\n");
-    printf("%s\n", freq->str);
+    printf("%s %i times\n", freq->str, freq->count);
   }
   else 
   {
@@ -110,7 +110,7 @@ void check_freq(node **frequencies, char *pch)
   printf("enter\n");
 
   // if its the first time
-  if (frequencies == NULL)
+  if ((*frequencies) == NULL)
   {
     printf("create\n");
     node *new = initiate_frequencie(sizeof(pch));
