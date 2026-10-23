@@ -43,6 +43,12 @@ int main(void)
 
   buff[length] = '\0';
 
-  printf("this is the string %s\n", buff);
+  char *pch = strtok(buff, " ,.-");
+
+  while (pch != NULL)
+  {
+    printf ("%s\n",pch);
+    pch = strtok (NULL, " ,.-");
+  }
   return 0;
 }
