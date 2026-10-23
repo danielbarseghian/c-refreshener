@@ -4,47 +4,45 @@
 
 int main(void)
 {
-  // take user input
-  // while the input cant fit in the buffer
-  // realloc the buffer
-  size_t capacity = 100;
-  char *buff = malloc(capacity * sizeof(char));
-  char *tmp = NULL;
+  int capacity = 16;
+  size_t length = 0;
+  char *buff = malloc(capacity);
 
-  printf("Enter a string: ");
-  
-  // Read input from the user
-  while(fgets(buff, capacity, stdin))
+  if (buff == NULL)
   {
-    printf("loop\n");
+    return 1;
+  }
 
-    size_t len = strlen(buff);
-    
-    // it isn't enough space
-    if (buff[len - 1] != '\n') 
+  int ch;
+  char *tmp;
+
+  printf("Please input a string: ");
+
+  while((ch = getchar()) != '\n' && ch != EOF)
+  {
+    // if there is no room for this caracter + the null character
+    if (length + 1 > capacity)
     {
-      len += 1;
-      tmp = realloc(buff, len);
-      printf("reallocted\n");
-      if (tmp != NULL)
+      capacity *= 2;
+
+      tmp = realloc(buff, capacity);
+      if (tmp == NULL)
       {
-        printf("NULL");
         free(buff);
         return 1;
       }
-
+      
+      // swap
       buff = tmp;
-      printf("changed\n");
+
     }
-    
-    // it is enough space
-    else
-    {
-      printf("break\n");
-      break;
-    }
+
+    buff[length] = ch;
+    length++;
   }
 
-  printf("Now: %s", buff);
-}
+  buff[length] = '\0';
 
+  printf("this is the string %s\n", buff);
+  return 0;
+}
