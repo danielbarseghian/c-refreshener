@@ -10,8 +10,9 @@ typedef struct node {
 } node;
 
 bool *check_pch(node *frequencies, char *pch);
-void initiate_frequencie(node *frequencie);
+node *initiate_frequencie(int size);
 void print_freq(node *freq);
+void check_freq(node **frequencies, char *pch);
 
 int main(void)
 {
@@ -55,8 +56,7 @@ int main(void)
   buff[length] = '\0';
 
   // initiate the first node of the linked list
-  node *frequencies = malloc(sizeof(node));
-  initiate_frequencie(frequencies);
+  node *frequencies = NULL;
   
   char *pch = strtok(buff, " ,.-");
 
@@ -64,60 +64,89 @@ int main(void)
   {
     printf ("%s\n",pch);
     
-    check_pch(frequencies, pch);
+    check_freq(&frequencies, pch);
     pch = strtok (NULL, " ,.-");
   }
+  printf("out\n");
 
   print_freq(frequencies);
   return 0;
 }
 
-void initiate_frequencie(node *frequencie)
+node *initiate_frequencie(int size)
 { 
-  frequencie->str = NULL;
-  frequencie->count = 0;
-  frequencie->next = NULL;
+  node *tmp = malloc(sizeof(node) * size);
+  if (tmp == NULL)
+    return NULL;
+
+  tmp->str = NULL;
+  tmp->count = 0;
+  tmp->next = NULL;
+  
+  return tmp;
 }
 
 void print_freq(node *freq)
 {
-  printf("%s\n", freq->str);
-
+  printf("entered\n");
+  if (freq->str != NULL)
+  {
+    printf("print\n");
+    printf("%s\n", freq->str);
+  }
+  else 
+  {
+    printf("nonono\n");
+  }
   if (freq->next != NULL)
   {
+    printf("next\n");
     print_freq(freq->next);
   }
 }
 
-bool *check_pch(node *frequencies, char *pch)
+void check_freq(node **frequencies, char *pch)
 {
-  if (frequencies == NULL || pch == NULL) 
-    return false;
+  printf("enter\n");
 
-  if (frequencies->str == NULL)
+  // if its the first time
+  if (frequencies == NULL)
   {
-    printf("Create\n");
-    // create a new node and add thoses values
-    node *tmp = malloc(sizeof(node));
-    if (tmp == NULL)
+    printf("create\n");
+    node *new = initiate_frequencie(sizeof(pch));
+
+    new->str = pch;
+    new->count++;
+
+    *frequencies = new;
+  }
+  // if its him 
+  else if (strcmp((*frequencies)->str, pch) == 0)
+  {
+    printf("bro is him\n");
+    (*frequencies)->count++;
+    return;
+  }
+  // else we need to search or create a new one
+  else 
+  {
+    printf("else\n");
+    if ((*frequencies)->next != NULL) 
+      check_freq(frequencies, pch);
+    // we neeed to create a new one 
+    else 
     {
-      return false;
+      printf("creating new node");
+      node *tmp = initiate_frequencie(sizeof(pch));
+
+      tmp->str = pch;
+      tmp->count++;
+
+      node *t = tmp;
+
+      // swap
+      tmp->next = *frequencies;
+      *frequencies = t;
     }
-    initiate_frequencie(tmp);
-
-    // put the variables
-    tmp->str = malloc(sizeof(char) * strlen(pch));
-    strcpy(tmp->str, pch);
-    tmp->count++;
-
-    frequencies->next = tmp;
-  }
-  else if (frequencies->next != NULL)
-  {
-    check_pch(frequencies->next, pch);
-  }
-  else if (strcmp(pch, frequencies->str) == 0)
-  {
-    frequencies->count++;
   }
 }
