@@ -67,7 +67,6 @@ int main(void)
     check_freq(&frequencies, pch);
     pch = strtok (NULL, " ,.-");
   }
-  printf("out\n");
 
   print_freq(frequencies);
   return 0;
@@ -88,31 +87,22 @@ node *initiate_frequencie(int size)
 
 void print_freq(node *freq)
 {
-  printf("entered\n");
   if (freq->str != NULL)
   {
-    printf("print\n");
     printf("%s %i times\n", freq->str, freq->count);
   }
-  else 
-  {
-    printf("nonono\n");
-  }
+
   if (freq->next != NULL)
   {
-    printf("next\n");
     print_freq(freq->next);
   }
 }
 
 void check_freq(node **frequencies, char *pch)
 {
-  printf("enter\n");
-
   // if its the first time
   if ((*frequencies) == NULL)
   {
-    printf("create\n");
     node *new = initiate_frequencie(sizeof(pch));
 
     new->str = pch;
@@ -123,20 +113,17 @@ void check_freq(node **frequencies, char *pch)
   // if its him 
   else if (strcmp((*frequencies)->str, pch) == 0)
   {
-    printf("bro is him\n");
     (*frequencies)->count++;
     return;
   }
   // else we need to search or create a new one
   else 
   {
-    printf("else\n");
     if ((*frequencies)->next != NULL) 
       check_freq(frequencies, pch);
     // we neeed to create a new one 
     else 
     {
-      printf("creating new node");
       node *tmp = initiate_frequencie(sizeof(pch));
 
       tmp->str = pch;
