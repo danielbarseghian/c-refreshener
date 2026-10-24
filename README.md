@@ -93,4 +93,4 @@ it was not using AI. Im trying to remove my habit of always asking AI for every 
 Im also switching to neovim and im so bad with string manipulation too (im working on it).
 
 ## License
-this project uses the MIT [license](#license)
+this project uses the MIT [license](LICENSE)
