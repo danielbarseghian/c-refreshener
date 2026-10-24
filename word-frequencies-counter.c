@@ -62,8 +62,6 @@ int main(void)
 
   while (pch != NULL)
   {
-    printf ("%s\n",pch);
-    
     check_freq(&frequencies, pch);
     pch = strtok (NULL, " ,.-");
   }
@@ -119,8 +117,11 @@ void check_freq(node **frequencies, char *pch)
   // else we need to search or create a new one
   else 
   {
-    if ((*frequencies)->next != NULL) 
-      check_freq(frequencies, pch);
+    if ((*frequencies)->next != NULL)
+    {
+      // always goes next
+      check_freq(&(*frequencies)->next, pch);
+    }
     // we neeed to create a new one 
     else 
     {
