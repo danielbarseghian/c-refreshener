@@ -4,6 +4,7 @@ i made 2 exercices to try and get my C coding skill back to hopefully make C pro
 ## Description
     - word-frequencies-counter
 i made this project to really start and get back into C. It was sooo hard, i was stuck so many times since i haven't coded for a while. I mixed up so many things and had to try to compile then fix the bugs over and over again.
+
     - mini-grep
 i really enjoyed making this one, its the first time i use Makefiles, include folder and src folder. I made a project trully by creating my own algorithms, even if there aren't the most efficiente i did it myself!
 
