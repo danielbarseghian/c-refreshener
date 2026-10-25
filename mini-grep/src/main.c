@@ -5,19 +5,28 @@
 
 int main (int argc, char *argv[])
 {
+  if (argc == 2 && strcmp(argv[1], "--help") == 0)
+  {
+    printf("Usage:\n");
+    printf("./minigrep [OPTION] PATTERN [FILE]\n");
+    printf("\nOptions: \n");
+    printf("--help will show you how to use");
+    return 0;
+  }
+
   if (argc != 3)
   {
-    printf("Usage: ./minigrep name-of-file pattern\n");
+    printf("Use ./minigrep --help to get more info!\n");
     return 1;
   }
 
   FILE* fptr;
 
-  fptr = fopen(argv[1], "r");
+  fptr = fopen(argv[2], "r");
 
   if (fptr == NULL)
   {
-    printf("The file coudnt be opened make sure the file is existante! \n");
+    printf("The file coudnt be opened make sure the file existe\n");
   }
 
   char line[256];
@@ -26,10 +35,10 @@ int main (int argc, char *argv[])
   while (fgets(line, sizeof(line), fptr))
   {
     printf("trying for %s\n", line);
-    count += search(line, argv[2]);
+    count += search(line, argv[1]);
   }
   
-  printf("found %s %i times.\n", argv[2], count);
+  printf("found %s %i times.\n", argv[1], count);
   fclose(fptr);
 }
 
