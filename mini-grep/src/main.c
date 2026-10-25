@@ -19,6 +19,7 @@ int main (int argc, char *argv[])
   }
 
   char line[256];
+  int count = 0;
 
   while (fgets(line, sizeof(line), fptr))
   {
@@ -26,6 +27,17 @@ int main (int argc, char *argv[])
   }
 
   fclose(fptr);
+}
 
+int get_count(char line[256], int *count)
+{
+  char *pch = strtok(buff, " ");
 
+  while (pch != NULL)
+  {
+     pch = strtok (NULL, " ,.-");
+  }
+
+  // cut the string 
+  // then strcmp
 }
