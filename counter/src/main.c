@@ -1,18 +1,8 @@
+#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-
-typedef struct node {
-  char *str;
-  int count;
-  struct node *next;
-} node;
-
-bool *check_pch(node *frequencies, char *pch);
-node *initiate_frequencie(int size);
-void print_freq(node *freq);
-void check_freq(node **frequencies, char *pch);
 
 int main(void)
 {
