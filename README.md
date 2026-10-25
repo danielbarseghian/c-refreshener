@@ -1,99 +1,99 @@
 # C-refreshener 
-im making 4 exercices to try and get back my level to create a custom-malloc!
+i made 2 exercices to try and get my C coding skill back to hopefully make C projects for the next weeks in terra!
 
 ## Description
-   - word-frequencies-counter
-The input will grow automaticly depending on the string's size. This part took me the most time, I rewrote it 2 times :0. Then it will sort put everything into a frequencie linked list and print them with the number of time they appear!
-   - the other one
+    - word-frequencies-counter
+i made this project to really start and get back into C. It was sooo hard, i was stuck so many times since i haven't coded for a while. I mixed up so many things and had to try to compile then fix the bugs over and over again.
+    - mini-grep
+i really enjoyed making this one, its the first time i use Makefiles, include folder and src folder. I made a project trully by creating my own algorithms, even if there aren't the most efficiente i did it myself!
 
 ## How to use
-This program has only been tested inside linux but normally everything should work inside any other distros
-
-### Install dependecies
-this is only required if you want to modify the code!
+The code is already pre-compiled for you! But if you want to modify the code yourself you should install dependecies!
+### Install dependecies (for thoses wanting to modify the code)
+You will need `make` and `gcc` to compile the code!
 
 #### Windows
+Install `MSYS2` that include make and gcc for windows.
 
-Install [MSYS2](https://www.msys2.org/), open the **MSYS2 UCRT64** terminal, and run:
+1. First install MSYS2
+You can get it from msys2.org !
 
+2. Open it from the start menu and run
 ```bash
-pacman -Syu
-pacman -S --needed mingw-w64-ucrt-x86_64-gcc make
+pacman -S --needed mingw-w64-ucrt-x86_64-gcc mingw-w64-ucrt-x86_64-make
 ```
+press y when prompted
 
-If prompted to close the terminal after updating, reopen it and run the install command again. Add `C:\msys64\ucrt64\bin` to your Windows `PATH` if you want to use `gcc` and `make` from other terminals. <citation src="3"></citation>
-
-#### MacOS
-
-Install Apple’s Command Line Tools, which provide `make` and a compiler:
-
-```bash
-xcode-select --install
-```
-
-> macOS’s `gcc` command usually invokes Apple Clang, not GNU GCC. If you specifically need GNU GCC, install it with [Homebrew](https://brew.sh/):
-
-```bash
-brew install gcc make
-```
-
-<citation src="1"></citation>
-
-#### Linux
-
-Use your distribution’s package manager. 
-
-Debian/Ubuntu
-```bash
-sudo apt update
-sudo apt install build-essential
-```
-
-Fedora:
-
-```bash
-sudo dnf install gcc make
-```
-
-Arch btw:
-
-```bash
-sudo pacman -S gcc make
-```
-
-> its so much easier for linux :0
-
-#### Verify the installation
-
-Open a new terminal and check that the commands are available:
-
+3. Check if there are installed
 ```bash
 gcc --version
 make --version
 ```
 
-### Compile and test
+#### MacOS
+On mac you can use apple's cli tools, they have `make` and `clang` (which is a C compiler that normally will work fine!).
 
-1. compile it
-
+1. First open the terminal
+2. Then run 
 ```bash
-    make word-frequencies-counter
+xcode-select --install
+```
+3. Something will pop up, click install 
+4. Finally verify
+```bash
+make --version
+clang --version
 ```
 
-2. run it
+#### Linux
+Since linux is goated installing it is so much easier!
 
+**Ubuntu/debian**
 ```bash
-    ./word-frequencies-counter
+sudo apt install make gcc
 ```
 
-now input some words and test it!
+**Fedora**
+```bash
+sudo dnf install make gcc
+```
 
+**Arch btw**
+```bash
+sudo pacman -S make gcc
+```
 
-## What was the most challenging part?
-it was not using AI. Im trying to remove my habit of always asking AI for every small things!
+Then verify its installed
+```bash
+make --version
+gcc --version
+```
+### How to use the programs
+ - mini-grep
+1. go in the folder
+```bash
+cd mini-grep
+```
+2. use the program 
+```bash
+./minigrep [PATTERN] [FILE]
+```
+> if you ever get lost on how to use it you can use `--help` to learn how to use it!
 
-## Why it took so long?
-Im also switching to neovim and im so bad with string manipulation too (im working on it).
+ - word-frequencies-counter
+1. go into the folder
+```bash
+cd word-frequencies-counter
+```
+2. Then run the program
+```bash
+./word-frequencies-counter
+```
+## What was the hardest step ? 
+Honestly just starting out it was really frustrating and hard but i got true and im having so much fun coding in C now!
+
+## What is grep ?
+Grep is a unix/linux command to find a __pattern__ in a FILE.
 
 ## License
-this project uses the MIT [license](LICENSE)
+The project uses the MIT [license](#license).
