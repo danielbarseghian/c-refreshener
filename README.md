@@ -2,7 +2,7 @@
 i made 2 exercices to try and get my C coding skill back to hopefully make C projects for the next weeks in terra!
 
 ## Description
-    - word-frequencies-counter
+    - counter
 i made this project to really start and get back into C. It was sooo hard, i was stuck so many times since i haven't coded for a while. I mixed up so many things and had to try to compile then fix the bugs over and over again.
 
     - mini-grep
@@ -10,6 +10,7 @@ i really enjoyed making this one, its the first time i use Makefiles, include fo
 
 ## How to use
 The code is already pre-compiled for you! But if you want to modify the code yourself you should install dependecies!
+
 ### Install dependecies (for thoses wanting to modify the code)
 You will need `make` and `gcc` to compile the code!
 
@@ -17,7 +18,7 @@ You will need `make` and `gcc` to compile the code!
 Install `MSYS2` that include make and gcc for windows.
 
 1. First install MSYS2
-You can get it from msys2.org !
+You can get it from msys2's [website](msys2.org)!
 
 2. Open it from the start menu and run
 ```bash
@@ -84,11 +85,11 @@ cd mini-grep
  - word-frequencies-counter
 1. go into the folder
 ```bash
-cd word-frequencies-counter
+cd counter 
 ```
 2. Then run the program
 ```bash
-./word-frequencies-counter
+./counter
 ```
 ## What was the hardest step ? 
 Honestly just starting out it was really frustrating and hard but i got true and im having so much fun coding in C now!

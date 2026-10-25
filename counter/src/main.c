@@ -4,8 +4,24 @@
 #include <string.h>
 #include <stdbool.h>
 
-int main(void)
+int main(int argc, char *argv[])
 {
+  if (argc == 2 && strcmp(argv[1], "--help"))
+  {
+    printf("Usage:\n");
+    printf("./counter\n");
+    printf("then input your string and it will print out the frequencies\n");
+    printf("\nOptions: \n");
+    printf("--help to learn how to use it!\n");
+    printf("\n This program is for terra, a program organized but hack club\n");
+    printf("The project uses the the MIT license\n");
+    return 0;
+  }
+  else if (argc != 1)
+  {
+    printf("use ./counter --help to learn how to use it\n");
+    return 1;
+  }
   int capacity = 16;
   size_t length = 0;
   char *buff = malloc(capacity);
@@ -57,6 +73,7 @@ int main(void)
   }
 
   print_freq(frequencies);
+
   return 0;
 }
 
