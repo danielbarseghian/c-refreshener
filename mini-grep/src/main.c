@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdio.h>
+#include <string.h>
 
 int main (int argc, char *argv[])
 {
@@ -23,21 +24,27 @@ int main (int argc, char *argv[])
 
   while (fgets(line, sizeof(line), fptr))
   {
-    printf("%s\n", line);
+    count = get_count(line, count, argv[2]);
   }
-
+  
+  printf("found %s %i times.\n", argv[2], count);
   fclose(fptr);
 }
 
-int get_count(char line[256], int *count)
+int get_count(char line[256], int count, char *word)
 {
-  char *pch = strtok(buff, " ");
+  char *pch = strtok(line, " ");
 
   while (pch != NULL)
   {
-     pch = strtok (NULL, " ,.-");
+    pch = strtok(NULL, " ");
+    
+    if (pch != NULL && strcmp(pch, word) == 0) 
+      count++;
   }
-
+  
+  return count;
+ 
   // cut the string 
   // then strcmp
 }

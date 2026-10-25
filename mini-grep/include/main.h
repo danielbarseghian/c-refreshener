@@ -1,7 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-int get_count(char line[256]);
+int get_count(char line[256], int count, char *word);
 
 #endif
 
