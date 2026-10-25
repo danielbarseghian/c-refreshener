@@ -1,11 +1,14 @@
-# Word frequencie counter
-im making 4 exercices to try and get back my level to create a custom-malloc! At first i was planning to make 4 exercices then ship but its better that i make each one into 4 projects!
+# C-refreshener 
+im making 4 exercices to try and get back my level to create a custom-malloc!
 
 ## Description
+   - word-frequencies-counter
 The input will grow automaticly depending on the string's size. This part took me the most time, I rewrote it 2 times :0. Then it will sort put everything into a frequencie linked list and print them with the number of time they appear!
+   - the other one
 
 ## How to use
 This program has only been tested inside linux but normally everything should work inside any other distros
+
 ### Install dependecies
 this is only required if you want to modify the code!
 
