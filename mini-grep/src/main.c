@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
 
 int main (int argc, char *argv[])
 {
@@ -24,27 +25,44 @@ int main (int argc, char *argv[])
 
   while (fgets(line, sizeof(line), fptr))
   {
-    count = get_count(line, count, argv[2]);
+    printf("trying for %s\n", line);
+    count += search(line, argv[2]);
   }
   
   printf("found %s %i times.\n", argv[2], count);
   fclose(fptr);
 }
 
-int get_count(char line[256], int count, char *word)
+int search(char *line, char *pattern)
 {
-  char *pch = strtok(line, " ");
+  int matched_size = strlen(pattern);
+  int i = 0, j = 0;
+  int curr_matching = 0;
+  int matched = 0;
 
-  while (pch != NULL)
+  printf("we need %i size\n", matched_size);
+  while (line[i] != '\0')
   {
-    pch = strtok(NULL, " ");
-    
-    if (pch != NULL && strcmp(pch, word) == 0) 
-      count++;
-  }
+    if (pattern[j] == line[i])
+    {
+      curr_matching++;
+      j++;
   
-  return count;
- 
-  // cut the string 
-  // then strcmp
+      if (j == matched_size)
+      {
+        matched++;
+        curr_matching = 0;
+      }
+    }
+
+    else if (pattern[j] != line[i] && curr_matching != 0)
+    {
+      j = 0;
+    }
+
+    i++;
+  }
+
+  return matched;
 }
+

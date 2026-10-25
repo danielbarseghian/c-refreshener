@@ -1,7 +1,8 @@
 #ifndef MAIN_H
 #define MAIN_H
+#include <stdbool.h>
 
-int get_count(char line[256], int count, char *word);
+int search(char *line, char *pattern);
 
 #endif
 
