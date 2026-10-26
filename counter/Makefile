@@ -1,7 +1,7 @@
 CC = cc
 CFLAGS = -Wall -Wextra -std=c11 -Iinclude
 
-TARGET = counter.exe
+TARGET = counter
 SRC = src/main.c
 HEADER = include/main.h
 
