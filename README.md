@@ -2,10 +2,10 @@
 i made 2 exercices to try and get my C coding skill back to hopefully make C projects for the next weeks in terra!
 
 ## Description
-    - counter
+### `counter`
 i made this project to really start and get back into C. It was sooo hard, i was stuck so many times since i haven't coded for a while. I mixed up so many things and had to try to compile then fix the bugs over and over again.
 
-    - mini-grep
+### `mini-grep`
 i really enjoyed making this one, its the first time i use Makefiles, include folder and src folder. I made a project trully by creating my own algorithms, even if there aren't the most efficiente i did it myself!
 
 ## How to use
@@ -70,8 +70,9 @@ Then verify its installed
 make --version
 gcc --version
 ```
+
 ### How to use the programs
- - mini-grep
+ #### `mini-grep`
 1. go in the folder
 ```bash
 cd mini-grep
@@ -82,7 +83,7 @@ cd mini-grep
 ```
 > if you ever get lost on how to use it you can use `--help` to learn how to use it!
 
- - word-frequencies-counter
+ #### `word-frequencies-counter`
 1. go into the folder
 ```bash
 cd counter 
