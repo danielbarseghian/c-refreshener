@@ -72,6 +72,7 @@ gcc --version
 ```
 
 ### How to use the programs
+if you installed the programs from the release open the terminal where the 2 programs are located or cd into it. If you opened the terminal in the folder you can skip step 1.
  #### `mini-grep`
 1. go in the folder
 ```bash
