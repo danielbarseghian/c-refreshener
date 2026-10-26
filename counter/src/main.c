@@ -74,7 +74,21 @@ int main(int argc, char *argv[])
 
   print_freq(frequencies);
 
+  // free the memory
+  free_frequencies(frequencies);
+
+  free(buff);
   return 0;
+}
+
+void free_frequencies(struct node *frequencies)
+{
+  if (frequencies->next != NULL)
+  {
+    free_frequencies(frequencies->next);
+  }
+
+  free(frequencies);
 }
 
 node *initiate_frequencie(int size)

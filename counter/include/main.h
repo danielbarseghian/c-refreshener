@@ -9,6 +9,7 @@ typedef struct node {
 
 node *initiate_frequencie(int size);
 void print_freq(node *freq);
-void check_freq(node **frequencies, char *pch); 
+void check_freq(node **frequencies, char *pch);
+void free_frequencies(struct node *frequencies); 
 
 #endif
